@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:App1"
+             x:Class="App1.MainPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/> 
+        </Grid.RowDefinitions>
+
+        <Label x:Name="lblTitle" Text="Best BMI Calculator" 
+               HorizontalOptions="Center" Grid.Row="0" />
+        
+        <StackLayout x:Name="slUserEntry" Grid.Row="1">
+            <StackLayout Orientation="Horizontal" 
+                         HorizontalOptions="Center" 
+                         Margin="0, 6, 0, 3">
+                <Label Text="Height (m)" Margin="2, 2, 2, 2"/>
+                <Entry Placeholder="Enter your height"
+                       x:Name="entHeight"   
+                       Margin="2"
+                       Keyboard="Numeric"
+                       TextChanged="entHeight_TextChanged"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" 
+                         HorizontalOptions="Center" 
+                         Margin="0, 3, 0, 3">
+                <Label Text="Weight (kg)" Margin="2, 2, 2, 2"/>
+                <Entry Placeholder="Enter your weight" Margin="2"
+                        x:Name="entWeight"
+                        TextChanged="entWeight_TextChanged"/>
+                        
+            </StackLayout>
+
+            <Label x:Name="lblAnswer" Text="Your BMI is : "
+                   HorizontalOptions="Center" Margin="0, 3, 0, 6"/>
+            
+        </StackLayout>
+        <StackLayout x:Name="StackLayoutButtons" Grid.Row="2"
+                     HorizontalOptions="Center"
+                     Orientation="Horizontal">
+        <Button x:Name="btnCalculate" Text="Calculate"
+               Margin="3, 2"
+               Clicked="btnCalculate_Clicked" IsEnabled="False"/>
+        <Button x:Name="btnBodyFatPage" Text="Body Fat" 
+               Clicked="btnBodyFatPage_Clicked" 
+               Margin="3, 2"/>
+        </StackLayout>
+        <Image x:Name ="chart" HeightRequest="120" WidthRequest="120" Grid.Row="3"
+               HorizontalOptions="Center" >
+
+            <Image.GestureRecognizers>
+                
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1"/>
+                
+            </Image.GestureRecognizers>
+        </Image>
+    </Grid>
+
+</ContentPage>
